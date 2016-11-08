@@ -3,38 +3,44 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    double userInput = 0;
-    double numberMax = -1;
-    double numberMin = -1;
-    double numberTotal = 0;
-    double numberAverage = 0;
-    int numberEntered = 0;
+    double numbers [10];
+    double numInput;
+    double numMax = 0;
+    double numMin = 0;
+    double numTotal = 0;
+    double numAverage = 0;
     
-    cout << "Enter a number (enter -1 to stop): " << endl;
-    cin >> userInput;
-    numberMin =userInput;
-    
-    while (userInput != -1){
-        if (userInput > numberMax)
-        {
-            numberMax = userInput;
-        }
-        if (userInput < numberMin)
-        {
-            numberMin = userInput;
-        }
-        
-        numberTotal += userInput;
-        numberEntered ++;
-        
-        cout << "Enter a number (enter -1 to stop): " << endl;
-        cin >> userInput;
+    for(int i = 0; i < 10; i++){
+        cout << "Enter a number: " << endl;
+        cin >> numInput;
+        numbers[i] = numInput;
     }
     
-    numberAverage = numberTotal / numberEntered;
+    for(int j = 0; j < 10; j++){
+        if (numbers[j] >= numMax){
+            numMax = numbers[j];
+        }
+    }
     
-    cout << "Maximum: " + to_string(numberMax) << endl;
-    cout << "Minimum: " + to_string(numberMin) << endl;
-    cout << "Average: " + to_string(numberAverage) << endl;
+    numMin = numbers[0];
+    
+    for(int k = 0; k < 10; k++){
+        if (numbers[k] <= numMin){
+            numMin = numbers[k];
+        }
+    }
+    
+    for(int l = 0; l < 10; l++){
+        numTotal += numbers[l];
+    }
+    
+    numAverage = numTotal/10;
+    
+    cout << "Min: " + to_string(numMin);
+    cout << "Max: " + to_string(numMax);
+    cout << "Average: " + to_string(numAverage);
+    
+    
+    
     
 }
